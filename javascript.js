@@ -33,16 +33,33 @@ function getHumanChoice () {
     return choice.toLowerCase();
 }
 
+//_getWinner(): a helper function that compares the scores and declares the winner
+function _getWinner(humanScore, computerScore) {
+    if (humanScore > computerScore) {
+        console.log(`You win! Human wins RPS.
+        Human Score: ${humanScore}
+        Computer Score: ${computerScore}`)
+    }
+    else if (humanScore < computerScore) {
+        console.log(`You lose :( Computer wins RPS.
+        Human Score: ${humanScore}
+        Computer Score: ${computerScore}`)
+    }
+    else { //humanScore == computerScore
+        console.log(`It's a tie! The scores are tied.
+        Human Score: ${humanScore}
+        Computer Score: ${computerScore}`);
+    }
+}
+
+//playGame(): calls playRound 5 times, keeps track of the scores and declares winner at the end
 function playGame() {
     //keeping track of the players scores
     var humanScore = 0;
     var computerScore = 0;
+
     //playRound(): takes human and computer players arguments, increments the round winner's score and logs a winner annoucement
     function playRound(humanChoice, computerChoice) {
-        //rock > scissors
-        //scissors > paper
-        //paper > rock
-        //same choice? tied. no points incremented
         if (humanChoice == computerChoice) {
             console.log(`It's a tie!`);
         }
@@ -81,10 +98,16 @@ function playGame() {
             }
         }
     }
+    
+    for (let i = 0; i < 5; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection,computerSelection);
+    }
 
+    //declares winner
+    _getWinner(humanScore, computerScore);
+    
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();
