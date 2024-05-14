@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>RPS</title>
 </head>
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissor">Scissors</button>
-    <div id="result">
+    <header>Rock, Paper, Scissors</header>
+    <p>first to score 5, wins!</p>
+    <div class="selection">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <div class="results" id="result">
+        <p id="score">0 - 0</p>
         <p id="gameResult">Game hasn't started.</p>
-        <p id="score">Human Score: 0; Computer Score: 0;</p>
         <p id="finalResult"></p>
     </div>
 </body>
